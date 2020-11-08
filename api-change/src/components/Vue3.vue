@@ -12,6 +12,7 @@
     <li>vue 实例方法按需引入， 减小打包后的体积</li>
     <li class="dot">Composition API</li>
     <li class="dot">更好的 TypeScript 支持</li>
+    <li>vue3 使用ts进行了重写</li>
     <li class="dot">Custom Render Api</li>
     <li>见代码</li>
     <li class="dot">新增Frament、Teleport、Suspense三个组件</li>
