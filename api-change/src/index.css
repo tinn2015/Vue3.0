@@ -23,8 +23,9 @@ li {
 .cell {
   width: 50%;
   float: left;
-  border: 1px solid green;
+  border-top: 1px solid green;
   padding: 10px;
+  margin-top: 20px;
 }
 
 .title {
@@ -35,8 +36,34 @@ li {
   text-align: center
 }
 
+.text-left {
+  text-align: left;
+}
+
+pre {
+  background: #464646;
+  font-size: 18px;
+  text-align: left;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+li {
+  margin-top: 10px;
+}
+
+li.dot {
+  list-style: disc;
+  font-weight: 600;
+}
+
 .flex {
   display: flex;
+}
+
+.ml10 {
+  margin-left: 10px;
 }
 
 .ml20 {

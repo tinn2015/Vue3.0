@@ -15,8 +15,8 @@
     <h2 class="ml20">{{label}}</h2>
   </div>
   <button @click="increase">increase</button>
-  <button @click="double">double</button>
-  <button @click="changeNum">changeNum</button>
+  <button class="ml10" @click="double">double</button>
+  <button class="ml10" @click="changeNum">changeNum</button>
 </template>
 
 <script>
