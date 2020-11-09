@@ -6,6 +6,9 @@
     <div class="cell"><CompositionApi></CompositionApi></div>
     <div class="cell"><SetUp name="ben"></SetUp></div>
     <div class="cell"><RefReactive></RefReactive></div>
+    <div class="cell"><ProvideInject></ProvideInject></div>
+    <div class="cell"><ModelValue></ModelValue></div>
+    <div><Attachment></Attachment></div>
   </div>
 </template>
 
@@ -16,6 +19,9 @@ import GlobalApi from './components/GlobalApi.vue'
 import RefReactive from './components/RefReactive.vue'
 import CompositionApi from './components/CompositionApi.vue'
 import SetUp from './components/SetUp.vue'
+import Attachment from './components/Attachment.vue'
+import ModelValue from './components/ModelValue.vue'
+import ProvideInject from './components/Provide&Inject.vue'
 
 export default {
   name: 'App',
@@ -25,7 +31,10 @@ export default {
     GlobalApi,
     V3,
     CompositionApi,
-    SetUp
+    SetUp,
+    Attachment,
+    ModelValue,
+    ProvideInject
   }
 }
 </script>

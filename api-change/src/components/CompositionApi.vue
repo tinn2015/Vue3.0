@@ -7,4 +7,5 @@
     <li>3. 项目越庞大以上问题越明显。<a href="https://v3.vuejs.org/guide/composition-api-introduction.html#why-composition-api" target="_blank" rel="noopener noreferrer">详见</a></li>
     <li class="dot">Composition Api主要就是为了解决以上问题，借鉴了React Hooks 的思想，实际上是实现了vue基于模板的函数式开发</li>
   </ul>
+  <h3>详见下图</h3>
 </template>
