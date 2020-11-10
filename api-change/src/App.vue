@@ -6,8 +6,11 @@
     <div class="cell"><CompositionApi></CompositionApi></div>
     <div class="cell"><SetUp name="ben"></SetUp></div>
     <div class="cell"><RefReactive></RefReactive></div>
+    <div class="cell"><WatchComputed></WatchComputed></div>
     <div class="cell"><ProvideInject></ProvideInject></div>
     <div class="cell"><ModelValue></ModelValue></div>
+    <div class="cell"><OtherChange></OtherChange></div>
+    <div class="w-full clear-both"><Ts></Ts></div>
     <div><Attachment></Attachment></div>
   </div>
 </template>
@@ -22,6 +25,9 @@ import SetUp from './components/SetUp.vue'
 import Attachment from './components/Attachment.vue'
 import ModelValue from './components/ModelValue.vue'
 import ProvideInject from './components/Provide&Inject.vue'
+import WatchComputed from './components/WatchComputed.vue'
+import OtherChange from './components/OtherChange.vue'
+import Ts from './components/Ts.vue'
 
 export default {
   name: 'App',
@@ -34,7 +40,14 @@ export default {
     SetUp,
     Attachment,
     ModelValue,
-    ProvideInject
+    ProvideInject,
+    WatchComputed,
+    OtherChange,
+    Ts
+  },
+  mounted () {
+  },
+  methods: {
   }
 }
 </script>

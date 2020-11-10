@@ -31,6 +31,13 @@ li {
   margin-top: 20px;
 }
 
+.w-full {
+  width: 100%;
+}
+.clear-both {
+  clear: both;
+}
+
 .title {
   margin-top: 10px;
 }
@@ -75,4 +82,8 @@ li.dot {
 
 .mt10 {
   margin-top: 10px;
+}
+
+.mt80 {
+  margin-top: 80px;
 }

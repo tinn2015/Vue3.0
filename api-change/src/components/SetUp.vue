@@ -4,6 +4,9 @@
   <ul>
     <li class="dot">setup 在生命周期beforeCreate之前执行</li>
     <li>因为这时候组件还没有create, 所以这时候setup中没有this</li>
+    <li class="dot">vue3 生命周期变化</li>
+    <li>destroyed -> unmounted</li>
+    <li>beforeDestroy -> beforeUnmount</li>
     <li>见下图</li>
     <li class="dot">接收两个参数(props, context)</li>
   </ul>
