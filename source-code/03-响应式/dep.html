@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let activeEffect
+
+        class Dep {
+            constructor (value) {
+                this.subscribers = new Set()
+                this._value = value
+
+            }
+
+            // get时收集依赖
+            get value () {
+                this.depend()
+                return this._value
+            }
+
+            // 通知更新
+            set value (newValue) {
+                this._value = newValue
+                this.notify()
+            }
+            
+            // 添加effect, 实际上就是订阅者
+            depend () {
+                if (activeEffect) {
+                    this.subscribers.add(activeEffect)
+                }
+            }
+
+            // 通知执行这些副作用
+            notify () {
+                this.subscribers.forEach(effect => {
+                    effect()
+                })
+            }
+        }
+
+        // 接受一个watcher
+        function watchEffect (effect) {
+            activeEffect = effect
+            effect()
+            activeEffect = null
+        }
+
+
+        const dep = new Dep('Hello')
+
+        watchEffect(() => {
+            console.log(dep.value)
+        })
+        dep.value = 'changed'
+    </script>
+</body>
+</html>
