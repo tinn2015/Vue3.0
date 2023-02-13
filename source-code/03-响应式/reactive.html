@@ -15,26 +15,27 @@
         class Dep {
             constructor (value) {
                 this.subscribers = new Set()
-                this._value = value
+                // this._value = value
 
             }
 
-            // get时收集依赖
-            get value () {
-                this.depend()
-                return this._value
-            }
+            // // get时收集依赖
+            // get value () {
+            //     this.depend()
+            //     return this._value
+            // }
 
-            // 通知更新
-            set value (newValue) {
-                this._value = newValue
-                this.notify()
-            }
+            // // 通知更新
+            // set value (newValue) {
+            //     this._value = newValue
+            //     this.notify()
+            // }
             
             // 添加effect, 实际上就是订阅者
             depend () {
                 if (activeEffect) {
                     this.subscribers.add(activeEffect)
+                    console.log('subscribers', this.subscribers)
                 }
             }
 
@@ -46,14 +47,55 @@
             }
         }
 
-        // // 接受一个watcher
-        // function watchEffect (effect) {
-        //     activeEffect = effect
-        //     effect()
-        //     activeEffect = null
-        // }
+        // 接受一个watcher
+        function watchEffect (effect) {
+            activeEffect = effect
+            effect()
+            activeEffect = null
+        }
 
+        function computed (effect) {
+            watchEffect(effect)
+        }
 
+        function track (target, key) {
+            component.dep.depend()
+        }
+
+        function trigger (target, key) {
+            component.dep.notify()
+        }
+
+        function reactive (object) {
+            return new Proxy(object, {
+                get (target, key) {
+                    track(target, key)
+                    return target[key]
+                },
+                set (target, key, value) {
+                    target[key] = value
+                    trigger(target, key)
+                }
+            })
+        }
+
+        const component = {
+            data: reactive({
+                name: 'tinn'
+            }),
+            dep: new Dep()
+        }
+
+        // const data = reactive({name: 'tinn'})
+        console.log('data', component.data.name)
+
+        watchEffect(() => {
+            console.log('watchEffect', component.data.name)
+        })
+
+        setTimeout(() => {
+            component.data.name = 'tinn dou'
+        }, 3000)
         // const dep = new Dep('Hello')
 
         // watchEffect(() => {
